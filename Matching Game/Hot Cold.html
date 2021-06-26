@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <title>Hot or Cold Game</title>
+    </head>
+
+<body>
+
+    <div>
+        <h1>The Hot or Cold Game</h1>
+        <button onclick="play()">Play</button>
+
+    </div>
+ 
+
+  <script>
+    
+    const min= 1,
+          max= 20,
+          previousGuesses=[];
+
+          let secretNum= null,
+          guessNum=null;
+
+          const play = function () {
+              secretNum=Math.floor(Math.random() * (max-min+1)) + min;
+              while (guessNumber() != secretNum) {
+                  if (guessNum != 0) {
+                      render();
+                     
+                  }
+              }
+             alert ("You Won!! The number was " + secretNum + " Your previous guesses were " + previousGuesses)
+          }
+const guessNumber=function(){
+    guessNum = prompt("Enter a number between" + min + " and " + max);
+    return guessNum;
+}
+const render=function(){
+    previousGuesses.push(guessNum);
+
+    if(guessNum>secretNum){
+        alert ("Too high!")
+    }
+    else{
+        alert("Too low!")
+    }
+}
+  </script>
+
+  </html>
